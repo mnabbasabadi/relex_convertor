@@ -1,0 +1,44 @@
+openapi: 3.0.3
+info:
+  title: CSV to JSON Converter API
+  description: An HTTP server that converts a flat hierarchy of items in CSV format to a nested hierarchical structure in JSON format.
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+paths:
+  /convert:
+    post:
+      summary: Convert flat CSV hierarchy to nested JSON
+      operationId: convert
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NestedHierarchy'
+        '400':
+          description: Bad Request
+        '500':
+          description: Internal Server Error
+components:
+  schemas:
+    NestedHierarchy:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the item.
+        children:
+          items:
+            $ref: '#/components/schemas/NestedHierarchy'
