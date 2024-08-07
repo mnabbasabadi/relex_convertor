@@ -1,14 +1,4 @@
-# fullstack-engineer assignment
-
-# What to do
-
-1. Create a new repository and push the original assignment to it
-2. Create a pull request in your new repo with your solution, write a short description of your solution and flag for any constraints and/or trade-offs in your code. Treat it as you would like to treat any PR at work
-3. Ask your contact person for reviewers to assign to your PR. Hopefully you'll exchange some comments & feedback before having a follow up discussion in person or online.
-
-# Assignment
-
-The task is to construct a HTTP server, written in go, that listens on `http://localhost:8080`,
+construct a HTTP server, written in go, that listens on `http://localhost:8080`,
 takes in a hierarchy of items in a flat structure (`CSV`), and returns it as a
 nested hierarchical structure (`JSON`).
 
